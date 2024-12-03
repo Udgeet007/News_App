@@ -1,4 +1,5 @@
 import axios from "axios";
+import "../App.css"
 import { useEffect, useState } from "react";
 import Newscomponent from "../components/Newscomponent";
 import TopHeadlines from "../components/TopHeadlines";
@@ -24,7 +25,8 @@ const Home = () => {
       <div className=" px-5 col-span-9">
         <Newscomponent AllNews={allNews} />
       </div>
-      <div className="bg-red-300 col-span-3 rlative">
+      <div className="bg-red-300 col-span-3 relative overflow-hidden">
+        <h1 className="absolute top-0 left-0 bg-black w-full p-3 text-center font-bold overflow-hidden text-white z-10">Top Headlines</h1>
         <div className="topHeadlines absolute">
           <TopHeadlines />
         </div>

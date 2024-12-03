@@ -2,7 +2,7 @@
 const Navbar = () => {
   return (
    <div>
-  <nav className=" bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
+  <nav className="fixed left-0 top-0 z-50 bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
     <div className="inline-flex">
       <a className="_o6689fn" href="/"><div className="hidden md:block">
           <svg width={102} height={32} fill="currentcolor" style={{display: 'block'}}>
