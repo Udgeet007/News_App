@@ -1,5 +1,15 @@
+import { useContext, useRef } from "react";
+import SearchContext from "../context/SearchContext";
 
 const Navbar = () => {
+  let searchRef = useRef();
+  let ctx = useContext(SearchContext);
+  console.log(ctx);
+  const handleSearch = () =>{
+     let value = searchRef.current.value;
+     console.log(value);
+     ctx.setSearch(value);
+  }
   return (
    <div>
   <nav className="fixed left-0 top-0 z-50 bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
@@ -21,7 +31,9 @@ const Navbar = () => {
     <div className="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
       <div className="inline-block">
         <div className="inline-flex items-center max-w-full">
-          <button className="flex items-center flex-grow-0 flex-shrink pl-2 relative w-60 border rounded-full px-1  py-1" type="button">
+          <input type="text" ref={searchRef}  className="border-2 rounded-md py-2 px-3  outline-none border-gray-400 " placeholder="search a news...."/>
+          <button onClick={handleSearch} className="bg-green-800 text-white hover:text-black px-4 py-2 rounded-md hover:bg-green-500 mx-2">search</button>
+          {/* <button className="flex items-center flex-grow-0 flex-shrink pl-2 relative w-60 border rounded-full px-1  py-1" type="button">
             <div className="block flex-grow flex-shrink overflow-hidden">Start your search</div>
             <div className="flex items-center justify-center relative  h-8 w-8 rounded-full">
               <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: 'block', fill: 'none', height: 12, width: 12, stroke: 'currentcolor', strokeWidth: '5.33333', overflow: 'visible'}}>
@@ -30,7 +42,7 @@ const Navbar = () => {
                 </g>
               </svg>
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
