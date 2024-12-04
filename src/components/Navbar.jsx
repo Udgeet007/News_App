@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <nav className="fixed left-0 top-0 z-50  bg-orange-300 w-full flex justify-between items-center mx-auto px-8 h-20">
+      <nav className="fixed left-0 top-0 z-50  bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
         <div className="inline-flex">
           <h1 className="font-bold text-xl">AIR News</h1>
         </div>

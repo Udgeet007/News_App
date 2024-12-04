@@ -14,7 +14,7 @@ const Newscomponent = (props) => {
             <img src={news.urlToImage} alt="" />
             <h1 className="font-bold my-2">{news.title}</h1>
             <h1 className="my-1">Author:<small>{news.author}</small></h1>
-            <h1 className="my-1 ">Published: <span>{news.publishedAt}</span></h1>
+            <h1 className="my-1">Published: <span>{news.publishedAt}</span></h1>
             <Link to={news.url} className="my-2 text-white hover:text-black bg-emerald-900 px-4 py-2 rounded-md hover:bg-emerald-500">View Full News</Link>
           </div>
         })
