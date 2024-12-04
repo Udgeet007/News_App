@@ -14,7 +14,7 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="mb-[70px]">
+        <div className="mb-[82px]">
           <Navbar />
         </div>
 
