@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import Newscomponent from "../components/Newscomponent";
 import TopHeadlines from "../components/TopHeadlines";
 import SearchContext from "../context/SearchContext";
+import Pagintion from "../components/Pagintion";
 
 const Home = () => {
   let ctx = useContext(SearchContext);
@@ -28,12 +29,14 @@ const Home = () => {
       <div className=" px-5 sm:col-span-9 col-span-12">
         <Newscomponent AllNews={allNews} />
       </div>
-      <div className="bg-red-300 col-span-3 md:w-auto w-[250px] sm:block hidden relative overflow-hidden">
+    
+      <div className="bg-red-900 col-span-3 md:w-auto w-[250px] sm:block hidden relative overflow-hidden">
         <h1 className="absolute top-0 left-0 bg-black w-full p-3 text-center font-bold overflow-hidden text-white z-10">Top Headlines</h1>
         <div className="topHeadlines absolute">
           <TopHeadlines />
         </div>
       </div>
+    <Pagintion/>
     </div>
   );
 };

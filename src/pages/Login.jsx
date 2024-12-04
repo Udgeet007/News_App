@@ -4,11 +4,17 @@ import UserContext from "../context/UserContext";
 
 const Login = () => {
   let ctx = useContext(UserContext);
-
+  console.log(ctx.loginUser);
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
-  let arr = JSON.parse(localStorage.getItem("AirNews"));
+
+  // useEffect(() => {
+  //   if (ctx.user.login) {
+  //     navigate("/");
+  //   }
+  // }, [ctx.user, navigate]);
+ 
   // console.log(arr);
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,25 +24,40 @@ const Login = () => {
       password: passwordRef.current.value,
     };
     console.log(obj);
-
+    let arr = JSON.parse(localStorage.getItem("AirNews"));
+    if (!arr) {
+      alert("No users found. Please register first.");
+      return;
+    }
     let userExists = arr.find((ele) => ele.email === obj.email);
     console.log(userExists);
+   
 
     if (userExists) {
       if (userExists.password === obj.password) {
         alert("User Login Successfully");
+        ctx.loginUser(obj); // Using the context's loginUser function
         navigate("/");
       } else {
         alert("Wrong Password.");
       }
+    } else {
+      alert("No users found. Please register first.");
+      return;
     }
   };
 
   return (
     <div className="bg-white font-[sans-serif] h-[90%] flex flex-col items-center justify-center py-6 px-4">
       <div className="max-w-md w-full border p-8 rounded-md bg-gray-200">
-        <div className="text-center">
-          <svg
+        <div className="text-center flex justify-center items-center">
+          <img
+            className="h-28 w-28 rounded-full object-cover"
+            src="https://cdn.dribbble.com/users/48599/screenshots/911869/lv_icon.png"
+            alt=""
+          />
+
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width={130}
             height={130}
@@ -53,7 +74,7 @@ const Login = () => {
               d="M26.953.004C12.32-.246.254 11.414.004 26.047-.138 34.344 3.56 41.801 9.448 46.76a7.041 7.041 0 0 1 1.257-.894l7.907-4.313a3.23 3.23 0 0 0 1.683-2.835v-3.24s-2.321-2.776-3.206-6.633a2.66 2.66 0 0 1-1.226-2.231v-3.546c0-.78.347-1.477.886-1.965v-5.126S15.696 8 26.499 8s9.75 7.977 9.75 7.977v5.126c.54.488.886 1.185.886 1.965v3.546c0 1.192-.8 2.195-1.886 2.53a19.482 19.482 0 0 1-2.632 5.304c-.291.411-.563.759-.801 1.03V38.8c0 1.223.691 2.342 1.785 2.888l8.467 4.233a7.05 7.05 0 0 1 1.39.932c5.71-4.762 9.399-11.882 9.536-19.9C53.246 12.32 41.587.254 26.953.004z"
               data-original="#556080"
             />
-          </svg>
+          </svg> */}
         </div>
         <form className="mt-12 space-y-4">
           <div className="relative flex items-center">
@@ -134,7 +155,7 @@ const Login = () => {
               Log in
             </button>
             <p className="text-sm mt-6 text-center text-gray-800">
-              Don't have an account{" "}
+              Don&apos;t have an account{" "}
               <Link
                 to={"/register"}
                 href="javascript:void(0);"
