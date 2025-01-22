@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import SearchContext from "./SearchContext"
+
 const SearchState = (props) => {
   const [search, setSearch] = useState("");
   console.log(search);

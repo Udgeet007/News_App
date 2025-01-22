@@ -28,12 +28,13 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <nav className="fixed left-0 top-0 z-50  bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
+      <nav className="fixed left-0 top-0 z-50  bg-blue-500 w-full flex justify-between items-center mx-auto px-8 h-20">
         <div className="inline-flex">
-          <h1 className="font-bold text-xl">AIR News</h1>
+          <h1 className="font-bold text-xl text-red-700">AIR News</h1>
         </div>
         {/* Search bar */}
-        <div className="hidden md:block flex-shrink flex-grow-0 justify-start px-2 mx-auto">
+        {
+          login===true && <div className="hidden md:block flex-shrink flex-grow-0 justify-start px-2 mx-auto">
           <div className="flex items-center justify-between">
             <div className="inline-flex items-center max-w-full">
               <input
@@ -50,36 +51,39 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div> 
+        }
         {/* Categories */}
-        <div className="mx-auto md:block hidden">
-          <ul className="flex gap-4">
-            <li
-              onClick={() => ctx.setSearch("crime")}
-              className="font-bold hover:underline cursor-pointer"
-            >
-              Crime
-            </li>
-            <li
-              onClick={() => ctx.setSearch("finance")}
-              className="font-bold  hover:underline cursor-pointer"
-            >
-              Finance
-            </li>
-            <li
-              onClick={() => ctx.setSearch("sports")}
-              className="font-bold  hover:underline cursor-pointer"
-            >
-              Sports
-            </li>
-            <li
-              onClick={() => ctx.setSearch("entertainment")}
-              className="font-bold  hover:underline cursor-pointer"
-            >
-              Entertainment
-            </li>
-          </ul>
-        </div>
+       {
+        login &&  <div className="mx-auto md:block hidden">
+        <ul className="flex gap-4">
+          <li
+            onClick={() => ctx.setSearch("crime")}
+            className="font-bold hover:underline cursor-pointer"
+          >
+            Crime
+          </li>
+          <li
+            onClick={() => ctx.setSearch("finance")}
+            className="font-bold  hover:underline cursor-pointer"
+          >
+            Finance
+          </li>
+          <li
+            onClick={() => ctx.setSearch("sports")}
+            className="font-bold  hover:underline cursor-pointer"
+          >
+            Sports
+          </li>
+          <li
+            onClick={() => ctx.setSearch("entertainment")}
+            className="font-bold  hover:underline cursor-pointer"
+          >
+            Entertainment
+          </li>
+        </ul>
+      </div>
+       }
         <div className="block relative">
           <button
             type="button"
